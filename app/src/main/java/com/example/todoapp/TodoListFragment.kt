@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.adapter.TodoListAdapter
 import com.example.todoapp.databinding.FragmentTodoListBinding
 import com.example.todoapp.model.TodoListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TodoListFragment : Fragment() {
     private var _binding: FragmentTodoListBinding? = null
     private val binding get() = _binding!!
@@ -31,10 +33,14 @@ class TodoListFragment : Fragment() {
         }
 
         val adapter = TodoListAdapter()
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.setHasFixedSize(true)
-        adapter.submitList(viewModel.todoList)
+        binding.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.setHasFixedSize(true)
+        }
+        viewModel.todoList.observe(viewLifecycleOwner){
+            adapter.submitList(it)
+        }
 
         return view
     }

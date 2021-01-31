@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.todoapp.databinding.FragmentTodoNewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TodoNewFragment : Fragment() {
     private var _binding: FragmentTodoNewBinding? = null
     private val binding get() = _binding!!
