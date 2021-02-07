@@ -8,26 +8,39 @@
     android:padding="16dp"
     tools:context=".TodoNewFragment">
 
-   <EditText
-       android:id="@+id/todoTitle"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/todoTitle"
 
-       android:hint="Enter task here"
-       />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Task description here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/colorSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todoTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/color_dropdown_item"
+        android:background="@drawable/spinner_shape"
+        >
+
+        
+    </androidx.appcompat.widget.AppCompatSpinner>
+
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todoTitle"
-        app:layout_constraintEnd_toEndOf="parent"
         android:text="Save"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

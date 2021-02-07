@@ -8,9 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.todoapp.adapter.ColorSpinnerAdapter
+import com.example.todoapp.data.ColorPickerPair
 import com.example.todoapp.databinding.FragmentTodoNewBinding
 import com.example.todoapp.model.EventMessage
 import com.example.todoapp.model.TodoViewModel
@@ -44,6 +48,14 @@ class TodoNewFragment : Fragment() {
                 }
             }
         }
+
+        val items = listOf(
+            ColorPickerPair("Red", "#FF0000"),
+            ColorPickerPair("Green", "#00FF00"),
+            ColorPickerPair("Blue", "#0000FF")
+        )
+        val adapter = ColorSpinnerAdapter(requireContext(), R.layout.color_dropdown_item, items)
+        binding.colorSpinner.adapter = adapter
 
         return binding.root
     }
