@@ -9,12 +9,13 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_margin="8dp"
         >
 
         <TextView
             android:id="@+id/cardTitle"
+            android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="?attr/textAppearanceHeadline6"
@@ -22,13 +23,13 @@
             android:textColor="@color/black"
             android:text="Card Title"/>
 
-        <TextView
-            android:id="@+id/cardSubtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="?attr/textAppearanceBody2"
-            android:textColor="@color/grey_500"
-            android:text="Subtitle text" />
+        <View
+            android:id="@+id/todoColorDot"
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:background="@drawable/color_dot" />
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </com.google.android.material.card.MaterialCardView>

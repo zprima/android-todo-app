@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 const val DATABASE_NAME = "todos_db"
 
-@Database(entities = [Todo::class], version = 1)
+@Database(entities = [Todo::class], version = 2)
 abstract class AppDatabase: RoomDatabase(){
     abstract fun todoDao(): TodoDao
 

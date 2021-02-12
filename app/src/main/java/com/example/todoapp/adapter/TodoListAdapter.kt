@@ -1,5 +1,6 @@
 package com.example.todoapp.adapter
 
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -14,6 +15,8 @@ class TodoListAdapter: ListAdapter<Todo, RecyclerView.ViewHolder>(TodoDiffCallba
         fun bind(item: Todo){
             binding.apply {
                 cardTitle.text = item.title
+                var background = todoColorDot.background as GradientDrawable
+                background.setColor(item.color)
             }
         }
     }

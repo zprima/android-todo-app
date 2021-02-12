@@ -21,8 +21,8 @@ class TodoViewModel @Inject constructor(
     private val _eventStatus: MutableLiveData<EventMessage?> = MutableLiveData(null)
     val eventStatus get() = _eventStatus
 
-    fun createTodo(title: String) = viewModelScope.launch{
-        val item = Todo(title = title)
+    fun createTodo(title: String, colorHex:String) = viewModelScope.launch{
+        val item = Todo(title = title, colorHex = colorHex)
         val todoId = todoRepository.add(item)
         Log.d("mijagi","After repository add: $todoId")
         _eventStatus.value = EventMessage.EVENT_OK(message = "$todoId")
